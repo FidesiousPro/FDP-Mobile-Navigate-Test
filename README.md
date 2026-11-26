@@ -1,4 +1,4 @@
-# FDP Mobile ListPart Repro
+# FDP Mobile Navigate Test
 
 Repro extension for two suspected bugs in the Business Central mobile app. Terms are defined in `GLOSSARY.md` (Dutch).
 
@@ -15,7 +15,7 @@ Both test pages are a NavigatePage. They differ only in how the orders are shown
 
 ## What is in the app
 
-Start from search: **Mobile ListPart Repro** (page 50103). It has four buttons and two test-data actions.
+Start from search: **Mobile Navigate Test** (page 50103). It has four buttons and two test-data actions.
 
 | Button | Opens | Page type of the main page |
 |---|---|---|

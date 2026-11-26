@@ -8,7 +8,7 @@ using Microsoft.Finance.VAT.Setup;
 page 50103 "FDP Repro Launcher"
 {
     ApplicationArea = All;
-    Caption = 'Mobile ListPart Repro';
+    Caption = 'Mobile Navigate Test';
     PageType = Card;
     UsageCategory = Administration;
 
