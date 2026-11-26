@@ -9,7 +9,7 @@ using Microsoft.Sales.Document;
 permissionset 50106 "FDP Repro All"
 {
     Assignable = true;
-    Caption = 'Mobile ListPart Repro';
+    Caption = 'Mobile Navigate Test';
 
     Permissions =
         tabledata "Sales Header" = RIMD,

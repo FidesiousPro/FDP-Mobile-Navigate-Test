@@ -1,6 +1,6 @@
 {
   "id": "0785fae7-c2a7-4a04-b08b-d0a8cab41f5a",
-  "name": "FDP Mobile ListPart Repro",
+  "name": "FDP Mobile Navigate Test",
   "publisher": "FidesiousPro",
   "version": "1.2.3.0",
   "brief": "Repro extension: ListPart record limit and focus in the BC mobile app",
