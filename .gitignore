@@ -1,0 +1,8 @@
+.alpackages/
+.altestrunner/
+.snapshots/
+.playwright-mcp/
+*.app
+.vscode/launch.json
+.vscode/.alcache/
+.vscode/rad.json
