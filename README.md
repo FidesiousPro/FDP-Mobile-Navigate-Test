@@ -15,7 +15,7 @@ Both test pages are a NavigatePage. They differ only in how the orders are shown
 
 ## What is in the app
 
-Start from search: **Mobile ListPart Repro** (page 50103). It has three buttons and two test-data actions.
+Start from search: **Mobile ListPart Repro** (page 50103). It has four buttons and two test-data actions.
 
 | Button | Opens | Page type of the main page |
 |---|---|---|
@@ -26,7 +26,7 @@ Start from search: **Mobile ListPart Repro** (page 50103). It has three buttons 
 
 Other actions: **Create test orders** (20 sales orders, idempotent) and **Delete test orders**.
 
-Buttons 1 and 2 create the test orders automatically if they do not exist, and delete them again when you close the page. Button 3 first deletes existing test orders (after a confirmation), because their customer has a VAT Bus. Posting Group, which makes the VAT Setup show "Manual setup required".
+Buttons 1, 2 and 3 create the test orders automatically if they do not exist, and delete them again when you close the page. Button 4 first deletes existing test orders (after a confirmation), because their customer has a VAT Bus. Posting Group, which makes the VAT Setup show "Manual setup required".
 
 ## How to run the test
 
@@ -34,29 +34,5 @@ Buttons 1 and 2 create the test orders automatically if they do not exist, and d
 2. Assign permission set **FDP Repro All** to the test user.
 3. In the web client: open the launcher, choose **Create test orders**.
 4. On a phone or tablet in the BC mobile app: open the launcher, run each variant.
-5. For variants 1 and 2: type `TEST-007` in **Order No.** without tapping the field first.
-6. For variant 3: open page 1877 in an environment with more than 5 VAT groups. **Do not choose Finish.**
-
-## Results
-
-Fill in after testing. Add screenshots under `docs/screenshots/`.
-
-### Record limit (20 test orders present)
-
-| Variant | Expected | Actual (mobile app) | Actual (web client) |
-|---|---|---|---|
-| 1. Navigate repeater | all records | | |
-| 2. Navigate subform | all records | | |
-| 3. Standard (page 1877) | all VAT groups | | |
-
-### Focus on open
-
-| Variant | Expected | Actual (mobile app) |
-|---|---|---|
-| 1. Navigate repeater | Order No. has focus | |
-| 2. Navigate subform | Order No. has focus | |
-
-## Not done
-
-- The app compiles with `alc.exe` (no errors), but it has not been published or run on a device.
-- If the record limit does not occur with the Sales Header ListPart, add a second ListPart on a temporary table (as the SC app does) to check whether the table type matters.
+5. For variants 1, 2 and 3: type `TEST-007` in **Order No.** without tapping the field first.
+6. For variant 4: open page 1877 in an environment with more than 5 VAT groups. **Do not choose Finish.**
