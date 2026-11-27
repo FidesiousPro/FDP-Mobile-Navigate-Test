@@ -2,7 +2,7 @@
 
 Repro extension for two suspected bugs in the Business Central mobile app. Terms are defined in `GLOSSARY.md` (Dutch).
 
-Target: cloud sandbox **FAT** in tenant **FidesiousPro** (`.vscode/launch.json`). Application 27, runtime 16.
+Target: a Business Central cloud sandbox. Application 29, runtime 18.
 
 > **Only use in a throwaway sandbox.** The extension creates and deletes sales orders `TEST-001..020`, and page 1877 creates VAT groups when you choose Finish.
 
@@ -15,24 +15,28 @@ Both test pages are a NavigatePage. They differ only in how the orders are shown
 
 ## What is in the app
 
-Start from search: **Mobile Navigate Test** (page 50103). It has four buttons and two test-data actions.
+Start from the Role Center or from search.
+
+- **Role Center.** On 27 standard Role Centers (for example Business Manager) the part **Mobile Navigate Test** (page 50149, `FDP Repro Launcher Part`) is shown above the Activities. It has three tiles: **Mobile Navigate Test** (opens the launcher), **Create test orders** and **Delete test orders**.
+- **Launcher.** Search for **Mobile Navigate Test** (page 50103). It is a NavigatePage with four buttons in the footer. Close it with the cross.
 
 | Button | Opens | Page type of the main page |
 |---|---|---|
-| 1. Navigate repeater | page 50100 | NavigatePage + repeater on the page |
-| 2. Navigate subform | page 50101 | NavigatePage + ListPart (subform with repeater) |
-| 3. Navigate add-in | page 50104 | NavigatePage + control add-in `FDP Order Picker` (field and list in one add-in, fills the page height) |
-| 4. Standard variant | page 1877 (standard BC) | wizard, shows the same limit with VAT groups |
+| 1. Repeater | page 50100 | NavigatePage + repeater on the page |
+| 2. Subform | page 50101 | NavigatePage + ListPart (subform with repeater) |
+| 3. Control Add-in | page 50104 | NavigatePage + control add-in `FDP Order Picker` (field and list in one add-in, fills the page height) |
+| 4. Page 1877 | page 1877 (standard BC) | wizard, shows the same limit with VAT groups |
 
-Other actions: **Create test orders** (20 sales orders, idempotent) and **Delete test orders**.
+Pages 50100 and 50101 show a red note under the title: "No focus on the Order No. field." and "Only five rows."
 
-Buttons 1, 2 and 3 create the test orders automatically if they do not exist, and delete them again when you close the page. Button 4 first deletes existing test orders (after a confirmation), because their customer has a VAT Bus. Posting Group, which makes the VAT Setup show "Manual setup required".
+The test orders (20 sales orders, `TEST-001..020`, customer `TESTKLANT`) are only created and deleted with the tiles **Create test orders** and **Delete test orders**. Buttons 1, 2 and 3 do not create or delete them. Button 4 first deletes existing test orders (after a confirmation), because their customer has a VAT Bus. Posting Group, which makes the VAT Setup show "Manual setup required".
 
 ## How to run the test
 
-1. Publish to FAT from VS Code (F5, or Ctrl+F5 without debugging).
+1. Publish to your sandbox from VS Code (F5, or Ctrl+F5 without debugging).
 2. Assign permission set **FDP Repro All** to the test user.
-3. In the web client: open the launcher, choose **Create test orders**.
-4. On a phone or tablet in the BC mobile app: open the launcher, run each variant.
+3. In the web client: on the Role Center, choose the tile **Create test orders**.
+4. On a phone or tablet in the BC mobile app: use the tile **Mobile Navigate Test** to open the launcher and run each variant.
 5. For variants 1, 2 and 3: type `TEST-007` in **Order No.** without tapping the field first.
 6. For variant 4: open page 1877 in an environment with more than 5 VAT groups. **Do not choose Finish.**
+7. When done, choose the tile **Delete test orders**.

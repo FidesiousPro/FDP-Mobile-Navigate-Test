@@ -24,5 +24,6 @@ permissionset 50106 "FDP Repro All"
         page "FDP Navigate Control-Addin" = X,
         page "FDP Order Overview Part" = X,
         page "FDP Repro Launcher" = X,
+        page "FDP Repro Launcher Part" = X,
         codeunit "FDP Test Data" = X;
 }

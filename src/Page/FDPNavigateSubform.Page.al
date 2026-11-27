@@ -6,7 +6,7 @@ namespace FidesiousPro.ReproMobile;
 page 50101 "FDP Navigate Subform"
 {
     ApplicationArea = All;
-    Caption = 'Navigate Subform';
+    Caption = 'Navigate - Subform';
     PageType = NavigatePage;
 
     layout
@@ -16,6 +16,7 @@ page 50101 "FDP Navigate Subform"
             group(Selection)
             {
                 ShowCaption = false;
+                Visible = not Dummy;
                 field(OrderNo; OrderNo)
                 {
                     Caption = 'Order No.';
@@ -25,6 +26,14 @@ page 50101 "FDP Navigate Subform"
                     begin
                         SelectOrder();
                     end;
+                }
+                field(OnlyFiveRows; OnlyFiveRowsTxt)
+                {
+                    Editable = false;
+                    ShowCaption = false;
+                    Style = Unfavorable;
+                    StyleExpr = true;
+                    ToolTip = 'The part shows at most five rows in the BC mobile app.';
                 }
                 part(Lines; "FDP Order Overview Part")
                 {
@@ -54,8 +63,16 @@ page 50101 "FDP Navigate Subform"
 
     var
         OrderNo: Code[20];
+        Dummy: Boolean;
+        OnlyFiveRowsTxt: Text;
+        OnlyFiveRowsLbl: Label 'Only five rows';
         SelectedMsg: Label 'Selected order %1.', Comment = '%1 = order number';
         NotInListMsg: Label 'Order %1 is not in the list.', Comment = '%1 = order number';
+
+    trigger OnOpenPage()
+    begin
+        OnlyFiveRowsTxt := OnlyFiveRowsLbl;
+    end;
 
     local procedure SelectOrder()
     begin
