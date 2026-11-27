@@ -5,15 +5,15 @@
   "version": "1.2.3.0",
   "brief": "Repro extension: ListPart record limit and focus in the BC mobile app",
   "description": "Shows that a ListPart on a NavigatePage displays at most 5 records in the BC mobile app, and compares record limit and field focus between a repeater directly on the NavigatePage and a subform with repeater.",
-  "privacyStatement": "",
-  "EULA": "",
-  "help": "",
-  "url": "",
-  "logo": "",
+  "privacyStatement": "https://github.com/FidesiousPro/FDP-Mobile-Navigate-Test",
+  "EULA": "https://github.com/FidesiousPro/FDP-Mobile-Navigate-Test/blob/main/LICENSE",
+  "help": "https://github.com/FidesiousPro/FDP-Mobile-Navigate-Test#readme",
+  "url": "https://github.com/FidesiousPro/FDP-Mobile-Navigate-Test",
+  "logo": "logo.png",
   "dependencies": [],
   "screenshots": [],
   "platform": "1.0.0.0",
-  "application": "27.0.0.0",
+  "application": "29.0.0.0",
   "idRanges": [
     {
       "from": 50100,
@@ -21,7 +21,7 @@
     }
   ],
   "target": "Cloud",
-  "runtime": "16.0",
+  "runtime": "18.0",
   "features": [
     "NoImplicitWith"
   ]

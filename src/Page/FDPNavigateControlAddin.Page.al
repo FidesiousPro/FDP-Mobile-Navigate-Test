@@ -9,7 +9,7 @@ using Microsoft.Sales.Document;
 page 50104 "FDP Navigate Control-Addin"
 {
     ApplicationArea = All;
-    Caption = 'Navigate Control Add-in';
+    Caption = 'Navigate - Control Add-in';
     PageType = NavigatePage;
 
     layout

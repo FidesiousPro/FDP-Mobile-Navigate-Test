@@ -8,7 +8,7 @@ using Microsoft.Sales.Document;
 page 50100 "FDP Navigate Repeater"
 {
     ApplicationArea = All;
-    Caption = 'Navigate Repeater';
+    Caption = 'Navigate - Repeater';
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = NavigatePage;
@@ -22,6 +22,7 @@ page 50100 "FDP Navigate Repeater"
             group(Selection)
             {
                 ShowCaption = false;
+                Visible = not Dummy;
                 field(OrderNo; OrderNo)
                 {
                     Caption = 'Order No.';
@@ -31,6 +32,14 @@ page 50100 "FDP Navigate Repeater"
                     begin
                         SelectOrder();
                     end;
+                }
+                field(NoFocus; NoFocusTxt)
+                {
+                    Editable = false;
+                    ShowCaption = false;
+                    Style = Unfavorable;
+                    StyleExpr = true;
+                    ToolTip = 'The Order No. field does not get focus in the BC mobile app.';
                 }
             }
             repeater(Orders)
@@ -73,8 +82,16 @@ page 50100 "FDP Navigate Repeater"
 
     var
         OrderNo: Code[20];
+        Dummy: Boolean;
+        NoFocusTxt: Text;
+        NoFocusLbl: Label 'No focus on the Order No. field';
         SelectedMsg: Label 'Selected order %1.', Comment = '%1 = order number';
         NotInListMsg: Label 'Order %1 is not in the list.', Comment = '%1 = order number';
+
+    trigger OnOpenPage()
+    begin
+        NoFocusTxt := NoFocusLbl;
+    end;
 
     local procedure SelectOrder()
     begin
